@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import AuthLayout from '@/views/AuthLayout.vue';
-import MainLayout from '@/views/MainLayout.vue';
+import AuthLayout from '@/core/views/AuthLayout.vue';
+import MainLayout from '@/core/views/MainLayout.vue';
 
-import NotFoundPage from '@/views/NotFoundPage.vue'
+import NotFoundPage from '@/core/views/NotFoundPage.vue'
 
 import LoginPage from '@/modules/Auth/views/LoginPage.vue';
 import RegisterPage from '@/modules/Auth/views/RegisterPage.vue';
