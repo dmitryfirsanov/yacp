@@ -12,22 +12,10 @@ const navLinks = [
   },
 ];
 
-const themeActionIcon = ref('pi pi-sun');
-
 const isMenuOpen = ref();
 
 function toggleUserMenu(event: Event) {
   isMenuOpen.value.toggle(event);
-}
-
-function toggleTheme() {
-  document.documentElement.classList.toggle('dark-mode');
-
-  if (document.documentElement.classList.contains('dark-mode')) {
-    themeActionIcon.value = 'pi pi-moon';
-  } else {
-    themeActionIcon.value = 'pi pi-sun';
-  }
 }
 </script>
 
@@ -51,13 +39,6 @@ function toggleTheme() {
       />
     </nav>
     <div class="header__actions">
-      <Button
-        class="header__action"
-        @click="toggleTheme"
-        :icon="themeActionIcon"
-        outlined
-        rounded
-      />
       <div class="header__action header__action--user">
         <Button
           icon="pi pi-user"
