@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import AuthView from '@/views/AuthView.vue';
-import MainView from '@/views/MainView.vue';
+import AuthLayout from '@/views/AuthLayout.vue';
+import MainLayout from '@/views/MainLayout.vue';
+
+import NotFoundPage from '@/views/NotFoundPage.vue'
 
 import LoginPage from '@/modules/Auth/views/LoginPage.vue';
 import RegisterPage from '@/modules/Auth/views/RegisterPage.vue';
@@ -15,8 +17,8 @@ const router = createRouter({
   routes: [
     {
       path: '/auth',
-      name: 'auth',
-      component: AuthView,
+      name: 'AuthPage',
+      component: AuthLayout,
       children: [
         {
           path: '/auth/login',
@@ -32,8 +34,9 @@ const router = createRouter({
     },
     {
       path: '/',
-      name: 'main',
-      component: MainView,
+      name: 'MainPage',
+      component: MainLayout,
+      redirect: { name: 'CatalogPage' },
       children: [
         {
           path: '/catalog',
@@ -47,7 +50,8 @@ const router = createRouter({
           props: true,
         }
       ]
-    }
+    },
+    { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundPage },
   ],
 })
 
