@@ -3,12 +3,6 @@
 @import 'primeicons/primeicons.css';
 
 :root {
-    --body-bg: var(--p-surface-0);
-    --card: var(--p-surface-100);
-    --card-hover: var(--p-surface-200);
-}
-
-:root[class="dark-mode"] {
     --body-bg: var(--p-surface-900);
     --card: var(--p-surface-800);
     --card-hover: var(--p-surface-700);
