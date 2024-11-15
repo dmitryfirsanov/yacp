@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --ext .ts,.vue src",
+    "lint:fix": "eslint --ext .ts,.vue src --fix"
   },
   "dependencies": {
     "@primevue/themes": "^4.2.1",
@@ -23,7 +25,14 @@
     "@primevue/auto-import-resolver": "^4.2.1",
     "@types/codemirror": "^5.60.15",
     "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
     "@vitejs/plugin-vue": "^5.1.4",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-vue": "^9.31.0",
+    "prettier": "^3.3.3",
     "typescript": "~5.6.2",
     "unplugin-vue-components": "^0.27.4",
     "vite": "^5.4.10",
