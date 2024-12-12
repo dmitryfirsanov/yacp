@@ -17,7 +17,7 @@ const navLinks = [
 
 const isMenuOpen = ref()
 
-const toggleUserMenu = (event: Event) => {
+const toggleUserMenu = (event?: Event) => {
     isMenuOpen.value.toggle(event)
 }
 

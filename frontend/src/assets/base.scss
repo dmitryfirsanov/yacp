@@ -2,19 +2,12 @@
 @import 'styles/fonts';
 @import 'primeicons/primeicons.css';
 
-:root {
-    --body-bg: var(--p-surface-900);
-    --card: var(--p-surface-800);
-    --card-hover: var(--p-surface-700);
-}
-
 html {
     font-size: 14px;
 }
 
 body {
     font-family: Inter;
-    background-color: var(--body-bg);
 }
 
 a {
