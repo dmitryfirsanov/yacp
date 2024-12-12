@@ -7,19 +7,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id           String    @id
-  name         String    @db.VarChar(60)
-  email        String    @unique
-  password     String
-  isOnline     Boolean?  @default(false)
-  role         UserRole? @default(User)
-  refreshToken String?
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime
+enum UserRole {
+  user
+  admin
+  teacher
 }
 
-enum UserRole {
-  User
-  Admin
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  firstName String    @db.VarChar(60)
+  lastName  String    @db.VarChar(60)
+  role      UserRole? @default(user)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
