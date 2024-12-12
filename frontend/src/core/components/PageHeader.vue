@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const navLinks = [
     {
@@ -14,8 +17,18 @@ const navLinks = [
 
 const isMenuOpen = ref()
 
-function toggleUserMenu(event: Event) {
+const toggleUserMenu = (event: Event) => {
     isMenuOpen.value.toggle(event)
+}
+
+const handleProfile = () => {
+    router.push({ name: 'ProfilePage' })
+
+    toggleUserMenu()
+}
+
+const handleLogout = () => {
+    toggleUserMenu()
 }
 </script>
 
@@ -40,8 +53,8 @@ function toggleUserMenu(event: Event) {
 
                 <Popover ref="isMenuOpen">
                     <div class="header__action-menu">
-                        <Button label="Профиль" icon="pi pi-user" text />
-                        <Button label="Выйти" icon="pi pi-sign-out" text />
+                        <Button label="Профиль" icon="pi pi-user" text @click="handleProfile" />
+                        <Button label="Выйти" icon="pi pi-sign-out" text @click="handleLogout" />
                     </div>
                 </Popover>
             </div>

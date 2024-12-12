@@ -9,7 +9,10 @@ import LoginPage from '@/modules/Auth/views/LoginPage.vue'
 import RegisterPage from '@/modules/Auth/views/RegisterPage.vue'
 
 import CatalogPage from '@/modules/Catalog/views/CatalogPage.vue'
+
 import TaskPage from '@/modules/Catalog/views/TaskPage.vue'
+
+import ProfilePage from '@/modules/Profile/views/ProfilePage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -46,6 +49,12 @@ const router = createRouter({
                     path: '/task/:id',
                     name: 'TaskPage',
                     component: TaskPage,
+                    props: true,
+                },
+                {
+                    path: '/profile',
+                    name: 'ProfilePage',
+                    component: ProfilePage,
                     props: true,
                 },
             ],
