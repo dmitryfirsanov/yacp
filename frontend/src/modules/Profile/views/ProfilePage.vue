@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { formatDate } from '@/helpers/formatting'
 
 import PageSpacing from '@/core/components/spacings/PageSpacing.vue'
+import PageHeader from '@/core/components/page/PageHeader.vue'
 
 // Пример данных для профиля
 const profile = ref({
@@ -23,9 +24,10 @@ const recentSolutions = ref([
 <template>
     <PageSpacing>
         <div class="profile-page">
+            <PageHeader text="Профиль" />
             <section class="profile-page__info">
                 <Card>
-                    <template #header>
+                    <template #content>
                         <div class="profile-page__info-header">
                             <Avatar
                                 :image="profile.avatar"
@@ -72,7 +74,6 @@ const recentSolutions = ref([
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 40px 0;
 
     &__info {
         &-header {
