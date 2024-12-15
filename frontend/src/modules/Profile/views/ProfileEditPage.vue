@@ -1,9 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
-    <div class="profile">
-        div.profile_
-    </div>
+    <div></div>
 </template>
-
-<style lang="scss"></style>

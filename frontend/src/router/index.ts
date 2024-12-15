@@ -8,11 +8,12 @@ import NotFoundPage from '@/core/views/NotFoundPage.vue'
 import LoginPage from '@/modules/Auth/views/LoginPage.vue'
 import RegisterPage from '@/modules/Auth/views/RegisterPage.vue'
 
-import CatalogPage from '@/modules/Catalog/views/CatalogPage.vue'
+import ProfilePage from '@/modules/Profile/views/ProfileViewPage.vue'
 
-import TaskPage from '@/modules/Catalog/views/TaskPage.vue'
-
-import ProfilePage from '@/modules/Profile/views/ProfilePage.vue'
+import TaskListPage from '@/modules/Task/views/TaskListPage.vue'
+import TaskViewPage from '@/modules/Task/views/TaskViewPage.vue'
+import TaskCreatePage from '@/modules/Task/views/TaskCreatePage.vue'
+import TaskEditPage from '@/modules/Task/views/TaskEditPage.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -23,12 +24,12 @@ const router = createRouter({
             component: AuthLayout,
             children: [
                 {
-                    path: '/auth/login',
+                    path: 'login',
                     name: 'LoginPage',
                     component: LoginPage,
                 },
                 {
-                    path: '/auth/register',
+                    path: 'register',
                     name: 'RegisterPage',
                     component: RegisterPage,
                 },
@@ -41,18 +42,30 @@ const router = createRouter({
             redirect: { name: 'CatalogPage' },
             children: [
                 {
-                    path: '/catalog',
-                    name: 'CatalogPage',
-                    component: CatalogPage,
+                    path: 'catalog',
+                    name: 'TaskListPage',
+                    component: TaskListPage,
                 },
                 {
                     path: '/task/:id',
-                    name: 'TaskPage',
-                    component: TaskPage,
+                    name: 'TaskViewPage',
+                    component: TaskViewPage,
                     props: true,
                 },
                 {
-                    path: '/profile',
+                    path: '/task/create',
+                    name: 'TaskCreatePage',
+                    component: TaskCreatePage,
+                    props: true,
+                },
+                {
+                    path: '/task/:id/edit',
+                    name: 'TaskEditPage',
+                    component: TaskEditPage,
+                    props: true,
+                },
+                {
+                    path: 'profile',
                     name: 'ProfilePage',
                     component: ProfilePage,
                     props: true,
