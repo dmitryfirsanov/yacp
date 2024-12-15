@@ -36,3 +36,16 @@ export const formatSex = (gender: string) => {
             return null
     }
 }
+
+export const formatDifficulty = (difficulty: string) => {
+    switch (difficulty) {
+        case 'easy':
+            return 'Легкий'
+        case 'medium':
+            return 'Средний'
+        case 'hard':
+            return 'Сложный'
+        default:
+            return null
+    }
+}
