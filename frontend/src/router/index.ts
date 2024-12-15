@@ -39,7 +39,7 @@ const router = createRouter({
             path: '/',
             name: 'MainPage',
             component: MainLayout,
-            redirect: { name: 'CatalogPage' },
+            redirect: { name: 'TaskListPage' },
             children: [
                 {
                     path: 'catalog',
