@@ -17,18 +17,31 @@ const navLinks = [
 
 const isMenuOpen = ref()
 
-const toggleUserMenu = (event?: Event) => {
+const menuItems = ref([
+    {
+        label: 'Профиль',
+        icon: 'pi pi-user',
+        command: handleProfile,
+    },
+    {
+        label: 'Выйти',
+        icon: 'pi pi-sign-out',
+        command: handleLogout,
+    },
+])
+
+const toggleMenu = (event?: Event) => {
     isMenuOpen.value.toggle(event)
 }
 
-const handleProfile = () => {
+function handleProfile() {
     router.push({ name: 'ProfilePage' })
 
-    toggleUserMenu()
+    toggleMenu()
 }
 
-const handleLogout = () => {
-    toggleUserMenu()
+function handleLogout() {
+    toggleMenu()
 }
 </script>
 
@@ -48,16 +61,16 @@ const handleLogout = () => {
             />
         </nav>
         <div class="header__actions">
-            <div class="header__action header__action--user">
-                <Button icon="pi pi-user" outlined rounded @click="toggleUserMenu" />
+            <Button
+                icon="pi pi-user"
+                outlined
+                rounded
+                aria-haspopup="true"
+                aria-controls="overlay_menu"
+                @click="toggleMenu"
+            />
 
-                <Popover ref="isMenuOpen">
-                    <div class="header__action-menu">
-                        <Button label="Профиль" icon="pi pi-user" text @click="handleProfile" />
-                        <Button label="Выйти" icon="pi pi-sign-out" text @click="handleLogout" />
-                    </div>
-                </Popover>
-            </div>
+            <Menu id="overlay_menu" ref="isMenuOpen" :model="menuItems" :popup="true"></Menu>
         </div>
     </header>
 </template>
@@ -73,20 +86,6 @@ const handleLogout = () => {
 
     &__actions {
         margin-left: auto;
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-    }
-
-    &__action-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-
-        .p-button {
-            justify-content: flex-start;
-            gap: 0.5rem;
-        }
     }
 }
 </style>
